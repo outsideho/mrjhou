@@ -21,18 +21,20 @@
             text-align: center;
             padding: 10px;
             display: none;
+
         }
         .result span {
             display: inline-block;
             font-size: 25px;
-            width: 150px;
+            width: 600px;
             background: #fff;
-            line-height: 30px;
-            color: #000;
-            margin: 5px;
+            line-height: 100px;
+            color: white;
+            margin: 10px;
             border-radius: 10px;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
             padding: 10px 0;
+	    background-color:green;
         }
         button, input, optgroup, select, textarea {
             color: inherit;
@@ -179,7 +181,7 @@
             member.forEach(function(item, index){
                 item.index = index;
                 var key = getKey(item);
-                var color = choosed[key] ? 'yellow' : 'red';
+                var color = choosed[key] ? 'red' : 'red';
                 html.push('<li><a href="#" style="color: ' + color + ';">' + item.name + '</a></li>');
             });
             html.push('</ul>');
@@ -205,7 +207,7 @@
                 .map(function(m){
                   choosed[getKey(m)] = 1;
                   list[m.index].style.color = color;
-                  return m.name + '<br/>' + m.phone; 
+                  return m.name + '<br/>' ; 
                 });
             localStorage.setItem('choosed', JSON.stringify(choosed));
             return ret;
