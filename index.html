@@ -179,7 +179,7 @@
             member.forEach(function(item, index){
                 item.index = index;
                 var key = getKey(item);
-                var color = choosed[key] ? 'yellow' : 'white';
+                var color = choosed[key] ? 'yellow' : 'red';
                 html.push('<li><a href="#" style="color: ' + color + ';">' + item.name + '</a></li>');
             });
             html.push('</ul>');
