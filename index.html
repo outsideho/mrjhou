@@ -121,7 +121,7 @@
             margin: 5px;
             padding: 10px 0;
             text-align: center;
-            width:50px;
+            width:150px;
         }
         .mask {
             -webkit-filter:blur(5px);
@@ -142,7 +142,7 @@
 </head>
 <body>
 <div id="main" class="wall">
-    <div class="result-btn">
+    <div class="result-btn" style="display:none">
        <a href="./result.html" target="_blank">今日語錄</a>
     </div>
 </div>
@@ -154,13 +154,14 @@
         @click="onClick(value)"
         class="pure-button"
         :class="{ 'button-error': selected == value}"
+        style="display:none"
        >{{value}}</button>
     <button
        class="pure-button"
        @click="toggle"
        :class="{'button-secondary': !running,
-               'button-success': running}">{{running?'停!':'開始'}}</button>
-    <button class="pure-button button-warning" @click="reset">重來</button>
+               'button-success': running}">{{running?'確定':'來句語錄'}}</button>
+    <button class="pure-button button-warning" @click="reset">重新選擇</button>
 </div>
 <script type="text/javascript" src="js/zepto.js"></script>
 <script type="text/javascript" src="js/vue.js"></script>
@@ -237,7 +238,7 @@
             },
             methods: {
                 reset: function(){
-                    if(confirm('注意!確定後今日語錄都將被清除')){
+                    if(confirm('注意!點選確定後語錄將被清除')){
                         localStorage.clear();
                         location.reload(true);
                     }
@@ -252,7 +253,7 @@
                         TagCanvas.SetSpeed('myCanvas', speed());
                         var ret = lottery(this.selected);
                         if (ret.length === 0) {
-                            $('#result').css('display', 'block').html('<span>信任帶來新幸福</span>');
+                            $('#result').css('display', 'block').html('<span>信任帶來新幸福 NEVER END</span>');
                             return
                         }
                         $('#result').css('display', 'block').html('<span>' + ret.join('</span><span>') + '</span>');
